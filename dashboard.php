@@ -24,7 +24,7 @@ include 'db.php';
             $stmt = $pdo->prepare('SELECT password_coment, password FROM senhas WHERE user_id = ?');
             $stmt->execute([$_SESSION['user_id']]);
             while ($row = $stmt->fetch()) {
-                echo '<li>' . htmlspecialchars($row['password_coment']) . ': ' . str_repeat('*', strlen($row['password'])) . '</li>';
+                echo '<li>' . htmlspecialchars($row['password_coment']) . ': ' . htmlspecialchars($row['password']) . '</li>';
             }
             ?>
         </ul>
